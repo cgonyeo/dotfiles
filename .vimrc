@@ -25,10 +25,12 @@ set wildmode=longest,list,full
 set runtimepath+=/usr/local/go/misc/vim     " go plugins
 set runtimepath+=/home/derek/git/vim2hs     " haskell plugins
 
-let g:haskell_conceal_wide = 1
+set foldlevel=20    " Open folds automatically down to 20 folds deep
 
 filetype plugin indent on
 syntax on
+
+let g:haskell_conceal = 0 " vim2hs will read in every line if I don't disable this. Lags like hell.
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
