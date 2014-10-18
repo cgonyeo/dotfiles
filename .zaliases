@@ -1,4 +1,10 @@
-alias ls="ls --color=auto"
+case $(uname) in
+    FreeBSD)
+        alias ls="ls -G"
+        ;;
+    Linux)
+        alias ls="ls --color=auto"
+        ;;
+esac
 alias grep="grep --color=auto"
 alias cp="cp -rv"
-alias rsync="rsync -avP"

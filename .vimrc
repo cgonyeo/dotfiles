@@ -1,6 +1,9 @@
-set incsearch       " When searching, jump to matches for the partial search before enter is pressed
+set incsearch       " When searching, jump to matches for the partial search
+                    " before enter is pressed
+set hlsearch        " Highlight search matches
 set ignorecase      " ignore case in searches
-set smartcase       " nevermind, care about case, but only if we have capital letters in our search
+set smartcase       " nevermind, care about case, but only if we have capital
+                    " letters in our search
 set scrolloff=5     " show 5 lines ahead of the cursor when scrolling
 
 set ruler           " displays the cursor column/row
@@ -17,10 +20,11 @@ set cuc             " draw a vertical line at the cursor
 set cursorline      " underline the characters on the row the cursor's on
 
 set tabstop=4 shiftwidth=4 softtabstop=4    " a tab == 4 spaces
-set spellfile=~/.vim/spellfile.en.add       " so we can spellcheck certain file types
+set spellfile=~/.vim/spellfile.en.add       " to spellcheck certain file types
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " ignore these files
-set wildmode=longest,list,full
-
+set wildmode=list:full                      " with tab completion, list all 
+                                            " matches and complete first match
+set showcmd                                 " show (partial) command at bottom
 
 set runtimepath+=/usr/local/go/misc/vim     " go plugins
 set runtimepath+=/home/derek/git/vim2hs     " haskell plugins
@@ -30,7 +34,8 @@ set foldlevel=20    " Open folds automatically down to 20 folds deep
 filetype plugin indent on
 syntax on
 
-let g:haskell_conceal = 0 " vim2hs will read in every line if I don't disable this. Lags like hell.
+let g:haskell_conceal = 0 " vim2hs will read in every line if I don't disable
+                          " this. Lags like hell.
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
@@ -59,6 +64,12 @@ endif
 " pressing jj or kk will get you out of insert mode
 inoremap jj <ESC>
 inoremap kk <ESC>
+
+" being dumb and holding down shift too long doesn't screw you
+command WQ wq
+command Wq wq
+command W w
+command Q q
 
 " Press , and then ip to go into or out of paste mode, and , and then cs to
 " clear a search
