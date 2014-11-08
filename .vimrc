@@ -79,3 +79,7 @@ map <Leader>cs :let @/ = ""<CR>
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+
+" makes cursor locator nicer
+hi CursorLine     cterm=NONE ctermbg=black
+hi CursorColumn   cterm=NONE ctermbg=black
