@@ -8,3 +8,4 @@ case $(uname) in
 esac
 alias grep="grep --color=auto"
 alias cp="cp -rv"
+alias nethack="telnet nethack.csh.rit.edu"
