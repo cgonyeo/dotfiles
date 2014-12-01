@@ -51,9 +51,6 @@ setopt pushdignoredups
 # This reverts the +/- operators.
 setopt pushdminus
 
-## PROMPT ##
-PROMPT="%(?..%{$fg_bold[red]%}%?%{$reset_color%} )%n@%m %~> "
-RPROMPT="%D %*"
 # don't beep and use emacs bindings
 unsetopt beep
 bindkey -e
@@ -105,3 +102,38 @@ man() {
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
             man "$@"
 }
+
+# Cabal sandbox stuff
+typeset -ga chpwd_functions
+function update_cabal_sandbox_info () {
+    if [[ -a cabal.sandbox.config ]]
+    then
+        export __CABAL_SANDBOX="%{$fg_bold[green]%}cabal %{$reset_color%}"
+    else
+        export __CABAL_SANDBOX=""
+    fi
+}
+
+# Prompt
+function set_prompt() {
+    PROMPT="%(?..%{$fg_bold[red]%}%?%{$reset_color%} )$__CABAL_SANDBOX%n@%m %~> "
+}
+ 
+# Dicking with my path for cabal sandboxes
+function cabal_bin_path() {
+    if [ -z $__CABAL_SANDBOX ]
+    then
+        export PATH=$PATH2:~/.cabal/bin
+    else
+        export PATH=$PATH2:./.cabal-sandbox/bin
+    fi
+}
+
+# Functions to run when the user cds
+chpwd_functions+='update_prompt_chpwd'
+update_prompt_chpwd () {
+    update_cabal_sandbox_info
+    cabal_bin_path
+    set_prompt
+}
+update_prompt_chpwd
