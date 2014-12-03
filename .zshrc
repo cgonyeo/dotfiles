@@ -125,7 +125,7 @@ function cabal_bin_path() {
     then
         export PATH=$PATH2:~/.cabal/bin
     else
-        export PATH=$PATH2:./.cabal-sandbox/bin
+        export PATH=$PATH2:./.cabal-sandbox/bin:~/.cabal/bin
     fi
 }
 
