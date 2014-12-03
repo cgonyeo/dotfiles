@@ -26,8 +26,9 @@ set wildmode=list:full                      " with tab completion, list all
                                             " matches and complete first match
 set showcmd                                 " show (partial) command at bottom
 
-set runtimepath+=/usr/local/go/misc/vim     " go plugins
-set runtimepath+=/home/derek/git/vim2hs     " haskell plugins
+" Invoke pathogen (this invokes all other plugins at ~/.vim/bundle)
+call pathogen#infect()
+call pathogen#helptags()
 
 set foldlevel=20    " Open folds automatically down to 20 folds deep
 
@@ -76,6 +77,11 @@ command Q q
 let mapleader = ","
 map <Leader>ip :set invpaste invnumber<CR>
 map <Leader>cs :let @/ = ""<CR>
+
+" Key binding for hoogle searches
+au BufNewFile,BufRead *.hs map <buffer> <Leader>hs :Hoogle
+au BufNewFile,BufRead *.hs map <buffer> <Leader>hi :HoogleInfo
+au BufNewFile,BufRead *.hs map <buffer> <Leader>hc :HoogleClose<CR>
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
