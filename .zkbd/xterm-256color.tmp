@@ -1,0 +1,8 @@
+typeset -g -A key
+
+key[F1]=''''
+key[F2]=''''
+key[F3]=''''
+key[F4]='^C'
+key[F5]='^C^C^C'
+key[F6]='^C'

@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/usr/home/derek/git/ttyvid'
+let g:netrw_dirhist_2='/home/derek/git/blog/my-site/css'
+let g:netrw_dirhist_3='/home/derek/git/blaenk.github.io/src/Site'
+let g:netrw_dirhist_4='/home/derek/git/blog/blog/posts'

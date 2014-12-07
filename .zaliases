@@ -1,11 +1,4 @@
-case $(uname) in
-    FreeBSD)
-        alias ls="ls -G"
-        ;;
-    Linux)
-        alias ls="ls --color=auto"
-        ;;
-esac
+alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias cp="cp -rv"
 alias nethack="telnet nethack.csh.rit.edu"

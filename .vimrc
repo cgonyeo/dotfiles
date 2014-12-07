@@ -7,30 +7,27 @@ set smartcase       " nevermind, care about case, but only if we have capital
 set scrolloff=5     " show 5 lines ahead of the cursor when scrolling
 
 set ruler           " displays the cursor column/row
-set background=dark " makes colors nicer on a dark display
 set number          " enables the numbers along the left
-set foldcolumn=1    " have a column to display folds
 
 set smartindent     " try to do smart autoindenting for C-like programs
 set expandtab       " use spaces instead of tabs
 
-set vb t_vb=""		" turn off beeping
-
-set cuc             " draw a vertical line at the cursor
-set cursorline      " underline the characters on the row the cursor's on
+set vb t_vb=""        " turn off beeping
 
 set tabstop=4 shiftwidth=4 softtabstop=4    " a tab == 4 spaces
-set spellfile=~/.vim/spellfile.en.add       " to spellcheck certain file types
+set spellfile=~/.vim/spellfile.en.add       " dictionary to spellcheck certain file types
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " ignore these files
-set wildmode=list:full                      " with tab completion, list all 
-                                            " matches and complete first match
 set showcmd                                 " show (partial) command at bottom
+
+set foldlevel=20    " Open folds automatically down to 20 folds deep
+
+set nocompatible
 
 " Invoke pathogen (this invokes all other plugins at ~/.vim/bundle)
 call pathogen#infect()
 call pathogen#helptags()
 
-set foldlevel=20    " Open folds automatically down to 20 folds deep
+color flattr                                " color scheme
 
 filetype plugin indent on
 syntax on
@@ -42,9 +39,9 @@ let g:haskell_conceal = 0 " vim2hs will read in every line if I don't disable
 " Don't do it when the position is invalid or when inside an event handler
 " (happens when dropping a file on gvim).
 autocmd BufReadPost *
-			\ if line("'\"") > 0 && line("'\"") <= line("$") |
-			\   exe "normal g`\"" |
-			\ endif
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal g`\"" |
+            \ endif
 
 au BufRead,BufNewFile *.mkd,*.markdown,*.md,*.mkdn setf mkd
 au BufRead,BufNewFile *.mkd,*.markdown,*.md,*.mkdn setlocal spell
@@ -54,12 +51,12 @@ autocmd FileType text setlocal textwidth=80
 autocmd FileType mkd setlocal textwidth=80
 
 if has('statusline')
-	set laststatus=2
+    set laststatus=2
 
-	set statusline=%<%f\                     " Filename
-	set statusline+=%w%h%m%r                 " Options
-	set statusline+=\ [%{&ff}/%Y]            " Filetype
-	set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+    set statusline=%<%f\                     " Filename
+    set statusline+=%w%h%m%r                 " Options
+    set statusline+=\ [%{&ff}/%Y]            " Filetype
+    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
 
 " pressing jj or kk will get you out of insert mode
@@ -85,7 +82,3 @@ au BufNewFile,BufRead *.hs map <buffer> <Leader>hc :HoogleClose<CR>
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-
-" makes cursor locator nicer
-hi CursorLine     cterm=NONE ctermbg=black
-hi CursorColumn   cterm=NONE ctermbg=black
