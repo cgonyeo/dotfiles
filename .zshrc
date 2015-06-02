@@ -148,6 +148,11 @@ man() {
 
 PROMPT="%n@%m %~> "
 
+
+# Default behavior for <Esc> / when pressed quickly together is dumb, because
+# it defaults to being read as a chord. This stops that, and has them read as
+# two separate keys.
+
 vi-search-fix() {
     zle vi-cmd-mode
     zle .vi-history-search-backward
@@ -156,3 +161,18 @@ vi-search-fix() {
 autoload vi-search-fix
 zle -N vi-search-fix
 bindkey -M viins '\e/' vi-search-fix
+
+
+# Ctrl-Z from the shell will try to fg
+
+fancy-ctrl-z () {
+    if [[ $#BUFFER -eq 0 ]]; then
+        BUFFER="fg"
+        zle accept-line
+    else
+        zle push-input
+        zle zlear-screen
+    fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
