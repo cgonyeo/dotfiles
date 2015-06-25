@@ -46,6 +46,8 @@ autocmd BufReadPost *
 au BufRead,BufNewFile *.mkd,*.markdown,*.md,*.mkdn setf mkd
 au BufRead,BufNewFile *.mkd,*.markdown,*.md,*.mkdn setlocal spell
 
+au BufRead,BufNewFile *.proto setf c
+
 " For all text and markdown files set 'textwidth' to 80 characters.
 autocmd FileType text setlocal textwidth=80
 autocmd FileType mkd setlocal textwidth=80
@@ -69,11 +71,14 @@ command Wq wq
 command W w
 command Q q
 
-" Press , and then ip to go into or out of paste mode, and , and then cs to
-" clear a search
+" Make the following mappings:
+" ,p == enter or leave paste mode and hide the numbers
+" ,c == clear the current search
+" ,s == search for the selected text (intended for use in visual mode)
 let mapleader = ","
-map <Leader>ip :set invpaste invnumber<CR>
-map <Leader>cs :let @/ = ""<CR>
+map <Leader>p :set invpaste invnumber<CR>
+map <Leader>c :let @/ = ""<CR>
+map <Leader>s y/<C-R>"<CR>
 
 " Key binding for hoogle searches
 au BufNewFile,BufRead *.hs map <buffer> <Leader>hs :Hoogle
