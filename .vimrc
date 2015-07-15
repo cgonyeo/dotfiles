@@ -15,11 +15,15 @@ set expandtab       " use spaces instead of tabs
 set vb t_vb=""        " turn off beeping
 
 set tabstop=4 shiftwidth=4 softtabstop=4    " a tab == 4 spaces
-set spellfile=~/.vim/spellfile.en.add       " dictionary to spellcheck certain file types
+set spellfile=~/.vim/spellfile.en.add       " dictionary for spellcheck
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " ignore these files
 set showcmd                                 " show (partial) command at bottom
 
 set foldlevel=20    " Open folds automatically down to 20 folds deep
+
+set wildmode=list:longest " When filling in for tab-completions and there's more
+                          " than one match, list all matches and complete till
+                          " longest common string
 
 set nocompatible
 
