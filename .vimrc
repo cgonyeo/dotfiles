@@ -43,6 +43,7 @@ set ruler           " displays the cursor column/row
 set number          " enables the numbers along the left
 set foldlevel=20    " Open folds automatically down to 20 folds deep
 set showcmd         " show (partial) command at bottom
+set t_Co=256        " make 256 colors work more often
 color flattr        " color scheme
 
 if has('statusline')
