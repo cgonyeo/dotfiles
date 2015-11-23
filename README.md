@@ -9,9 +9,5 @@ To use:
 ```bash
 git clone https://github.com/dgonyeo/dotfiles.git
 cd dotfiles
-git submodule init
-git submodule update
-rsync -av .* ~ --exclude=.git --exclude=.gitmodules --exclude=README.md
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/*
+./install.sh
 ```
