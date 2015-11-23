@@ -15,7 +15,6 @@ main = do
     }
     `additionalKeysP`
     [ ("M-g", goToSelected defaultGSConfig)
-    , ("M-x", spawn "xscreensaver-command -lock")
     , ("M-s", spawnSelected defaultGSConfig ["chromium", "evince", "openttd", "gimp", "xscreensaver-demo"])
     , ("M-x", spawn "xscreensaver-command -lock")
     , ("M-<Up>", spawn "light -A 10")
