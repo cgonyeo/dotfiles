@@ -1,0 +1,25 @@
+Config { font     = "xft:dejavu:size=10:antialias=true"
+       , bgColor  = "#000000"
+       , fgColor  = "#BFBFBF"
+       , position = Top
+       , lowerOnStart = True
+       , commands = [ Run Date "%a %b %_d %Y  %H:%M:%S" "theDate" 10
+                    , Run BatteryP ["BAT0"] ["-t", "Bat: <left>% <timeleft>"
+                                            ,"-L", "20"
+                                            ,"-l", "red"
+                                            , "-H", "50"
+                                            ] 100
+                    , Run MultiCpu [ "-t", "CPU: <autototal>"
+                                   , "-L", "5"
+                                   , "-H", "50"
+                                   , "--normal", "green"
+                                   , "--high", "red"
+                                   ] 10
+                    , Run Memory ["-t","Mem: <used>MB / <total>MB"] 10
+                    , Run Wireless "wlp3s0" ["-t", "SSID: <essid> <quality>%"] 10
+                    , Run Locks
+                    , Run StdinReader ]
+       , sepChar  = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ <fc=#FFFF00>%locks%</fc> %multicpu% | %memory% | %wlp3s0wi% | %battery% | <fc=#FF0000>%theDate%</fc>"
+       }
