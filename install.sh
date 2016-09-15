@@ -5,7 +5,7 @@ echo 'updating submodules'
 git submodule update --init --recursive
 
 echo 'linking stuff'
-local here=$(dirname $0)
+local here=$(dirname $0:A)
 for file in .Xdefaults .gitconfig .screenrc .slrnrc .vimrc .vim .xmobarrc .zshaliases .zshenv .zshrc; do
     if [[ $file == '.gitconfig' && $USER != 'derek' ]]; then
         echo "not linking $file, it has my name in it!  do it yourself"

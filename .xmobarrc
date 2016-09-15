@@ -16,10 +16,12 @@ Config { font     = "xft:dejavu:size=10:antialias=true"
                                    , "--high", "red"
                                    ] 10
                     , Run Memory ["-t","Mem: <used>MB / <total>MB"] 10
-                    , Run Wireless "wlp3s0" ["-t", "SSID: <essid> <quality>%"] 10
+                    , Run Wireless "wlp58s0" ["-t", "SSID: <essid> <quality>%"] 10
+                    , Run Volume "default" "Master" [ ] 10
                     , Run Locks
-                    , Run StdinReader ]
+                    , Run StdinReader 
+                    ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ <fc=#FFFF00>%locks%</fc> %multicpu% | %memory% | %wlp3s0wi% | %battery% | <fc=#FF0000>%theDate%</fc>"
+       , template = "%StdinReader% }{ <fc=#FFFF00>%locks%</fc> %default:Master% | %multicpu% | %memory% | %wlp58s0wi% | %battery% | <fc=#FF0000>%theDate%</fc>"
        }
