@@ -18,9 +18,6 @@ set nocompatible
 " General Settings
 set backspace=indent,eol,start            " allow backspacing over everything in
                                           " insert mode
-set colorcolumn=81                        " Highlight the 81st column
-set scrolloff=5                           " show 5 lines ahead of the cursor
-                                          " when scrolling
 set vb t_vb=""                            " turn off beeping
 set spellfile=~/.vim/spellfile.en.add     " dictionary for spellcheck
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/* " ignore these files
@@ -44,6 +41,11 @@ set number          " enables the numbers along the left
 set foldlevel=20    " Open folds automatically down to 20 folds deep
 set showcmd         " show (partial) command at bottom
 set t_Co=256        " make 256 colors work more often
+set lazyredraw      " don't update screen inside macros, etc
+set colorcolumn=81  " Highlight the 81st column
+set scrolloff=5     " show 5 lines ahead of the cursor when scrolling
+set textwidth=80    " wrap after 80 columns
+set colorcolumn=+1  " highlight 81st column
 color flattr        " color scheme
 
 if has('statusline')
@@ -62,14 +64,19 @@ set expandtab       " use spaces instead of tabs
 set tabstop=4 shiftwidth=4 softtabstop=4    " a tab == 4 spaces
 
 
-" History
-"set undofile
-"set undolevels=1000
-"set history=1000
-"set undodir=~/.vim/tmp/undo/
-"set backupdir=~/.vim/tmp/backup/
-"set directory=~/.vim/tmp/swap/
-"set backup
+" backups and other junky files
+set backupdir=~/.vim/backup     " get backups outta here
+set directory=~/.vim/swap       " get swapfiles outta here
+set writebackup                 " temp backup during write
+set undodir=~/.vim/undo         " persistent undo storage
+set undofile                    " persistent undo on
+
+" unicode
+set encoding=utf-8              " best default encoding
+setglobal fileencoding=utf-8    " ...
+set nobomb                      " do not write utf-8 BOM!
+set fileencodings=ucs-bom,utf-8,iso-8859-1
+                                " order to detect Unicodeyness
 
 
 " Remapping
@@ -102,6 +109,9 @@ command WQ wq
 command Wq wq
 command W w
 command Q q
+command E e
+command QA qa
+command Qa qa
 
 "" w!! will sudo the write
 cmap w!! %!sudo tee > /dev/null %
