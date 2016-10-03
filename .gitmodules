@@ -10,3 +10,6 @@
 [submodule ".vim/bundle/vim-go"]
 	path = .vim/bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
+[submodule ".vim/bundle/vim-openscad"]
+	path = .vim/bundle/vim-openscad
+	url = https://github.com/sirtaj/vim-openscad
