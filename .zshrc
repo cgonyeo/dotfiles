@@ -312,3 +312,5 @@ bindkey '^X' fancy-ctrl-x
 if [[ -r $HOME/.zlocal ]]; then
     source $HOME/.zlocal
 fi
+
+source ~/.zaliases
