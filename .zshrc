@@ -10,7 +10,6 @@ _force_rehash() {
 }
 
 # Always use menu completion, and make the colors pretty!
-zstyle ':completion:*' menu select yes
 zstyle ':completion:*:default' list-colors ''
 
 # Completers to use: rehash, general completion, then various magic stuff and
