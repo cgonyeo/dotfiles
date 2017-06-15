@@ -13,3 +13,4 @@ export LESS=RSM     # -R: print ANSI color escapes directly to the screen
 
 # Go installs things here
 export PATH=$PATH:/home/derek/go/bin
+export PATH=$PATH:/home/derek/.bin

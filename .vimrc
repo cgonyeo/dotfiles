@@ -82,10 +82,10 @@ set fileencodings=ucs-bom,utf-8,iso-8859-1
 " Remapping
 
 "" Make the following mappings:
-"" ,p == enter or leave paste mode and hide the numbers
-"" ,c == clear the current search
-"" ,s == search for the selected text (intended for use in visual mode)
-let mapleader = ","
+"" _p == enter or leave paste mode and hide the numbers
+"" _c == clear the current search
+"" _s == search for the selected text (intended for use in visual mode)
+let mapleader = "_"
 map <Leader>p :set invpaste invnumber<CR>
 map <Leader>c :let @/ = ""<CR>
 map <Leader>s y/<C-R>"<CR>
@@ -133,7 +133,16 @@ autocmd BufReadPost *
             \   exe "normal g`\"" |
             \ endif
 
+" markdown files are markdown files
 au BufRead,BufNewFile *.mkd,*.markdown,*.md,*.mkdn setf mkd
+" markdown files are spellchecked
 au BufRead,BufNewFile *.mkd,*.markdown,*.md,*.mkdn setlocal spell
 
-au BufRead,BufNewFile *.proto setf c
+" ignition files are json files
+au Bufread,BufNewFile *.ign,*.ignition setf json
+
+" clc files are yaml files
+au Bufread,BufNewFile *.clc setf yaml
+
+" Disable textwidth wrapping for make.conf
+au BufRead,BufNewFile make.conf set textwidth=0

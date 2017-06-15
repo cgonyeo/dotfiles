@@ -313,3 +313,10 @@ if [[ -r $HOME/.zlocal ]]; then
 fi
 
 source ~/.zaliases
+
+export LESS_TERMCAP_md=$(printf '\e[01;35m')
+
+source ~/.cargo/env
+source ~/.profile
+
+. /home/derek/.nix-profile/etc/profile.d/nix.sh

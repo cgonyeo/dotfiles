@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/vim-openscad"]
 	path = .vim/bundle/vim-openscad
 	url = https://github.com/sirtaj/vim-openscad
+[submodule ".vim/bundle/rust.vim"]
+	path = .vim/bundle/rust.vim
+	url = https://github.com/rust-lang/rust.vim.git

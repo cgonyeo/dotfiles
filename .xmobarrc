@@ -1,14 +1,17 @@
-Config { font     = "xft:dejavu:size=10:antialias=true"
+Config { font     = "xft:Dejavu Sans Mono:size=10:antialias=true"
        , bgColor  = "#000000"
        , fgColor  = "#BFBFBF"
        , position = Top
        , lowerOnStart = True
+       , sepChar  = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ <fc=#FFFF00>%locks%</fc> %multicpu% | %memory% | %wlp58s0wi% | Brightness: %cat0% | %default:Master% | %battery% | <fc=#FF0000>%theDate%</fc>"
        , commands = [ Run Date "%a %b %_d %Y  %H:%M:%S" "theDate" 10
                     , Run BatteryP ["BAT0"] ["-t", "Bat: <left>% <timeleft>"
                                             ,"-L", "20"
                                             ,"-l", "red"
                                             , "-H", "50"
-                                            ] 100
+                                            ] 50
                     , Run MultiCpu [ "-t", "CPU: <autototal>"
                                    , "-L", "5"
                                    , "-H", "50"
@@ -20,8 +23,6 @@ Config { font     = "xft:dejavu:size=10:antialias=true"
                     , Run Volume "default" "Master" [ ] 10
                     , Run Locks
                     , Run StdinReader 
+                    , Run CatInt 0 "/sys/class/backlight/intel_backlight/brightness" [] 1
                     ]
-       , sepChar  = "%"
-       , alignSep = "}{"
-       , template = "%StdinReader% }{ <fc=#FFFF00>%locks%</fc> %default:Master% | %multicpu% | %memory% | %wlp58s0wi% | %battery% | <fc=#FF0000>%theDate%</fc>"
        }
