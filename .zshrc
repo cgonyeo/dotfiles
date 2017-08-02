@@ -265,6 +265,7 @@ bindkey "\eOB" down-line-or-local-history
 # emacs users will expect these...
 bindkey "^a" beginning-of-line
 bindkey "^e" end-of-line
+bindkey "^r" vi-history-search-backward
 
 # Default behavior for <Esc> / when pressed quickly together is dumb, because
 # it defaults to being read as a chord. This stops that, and has them read as
