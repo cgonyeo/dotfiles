@@ -113,6 +113,16 @@ PROMPT="%n@%m %(?..%{$fg_no_bold[red]%}%?%{$reset_color%} )%~> "
 for command in find wget curl nix-env; \
     alias $command="noglob $command"
 
+# vim (preferring neovim)
+if which nvim > /dev/null; then
+  export EDITOR=nvim
+  alias vi=nvim
+  alias vim=nvim
+else
+  export EDITOR=vim
+  alias nvim=vim
+fi
+
 ### ls
 
 LSOPTS='-vF --si'  # natural sort, type squiggles, friendly sizes
