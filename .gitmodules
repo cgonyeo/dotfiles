@@ -22,3 +22,18 @@
 [submodule ".vim/dein-bundles/repos/github.com/Shougo/dein.vim"]
 	path = .vim/dein-bundles/repos/github.com/Shougo/dein.vim
 	url = https://github.com/Shougo/dein.vim
+[submodule ".vim/dein-bundles/repos/github.com/Shougo/vimshell"]
+	path = .vim/dein-bundles/repos/github.com/Shougo/vimshell
+	url = https://github.com/Shougo/vimshell
+[submodule ".vim/dein-bundles/repos/github.com/fatih/vim-go"]
+	path = .vim/dein-bundles/repos/github.com/fatih/vim-go
+	url = https://github.com/fatih/vim-go
+[submodule ".vim/dein-bundles/repos/github.com/flazz/vim-colorschemes"]
+	path = .vim/dein-bundles/repos/github.com/flazz/vim-colorschemes
+	url = https://github.com/flazz/vim-colorschemes
+[submodule ".vim/dein-bundles/repos/github.com/mattn/webapi-vim"]
+	path = .vim/dein-bundles/repos/github.com/mattn/webapi-vim
+	url = https://github.com/mattn/webapi-vim
+[submodule ".vim/dein-bundles/repos/github.com/rust-lang/rust.vim"]
+	path = .vim/dein-bundles/repos/github.com/rust-lang/rust.vim
+	url = https://github.com/rust-lang/rust.vim
