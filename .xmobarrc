@@ -5,7 +5,7 @@ Config { font     = "xft:Dejavu Sans Mono:size=10:antialias=true"
        , lowerOnStart = True
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ <fc=#FFFF00>%locks%</fc> %multicpu% | %memory% | %wlp58s0wi% | Brightness: %cat0% | %default:Master% | %battery% | <fc=#FF0000>%theDate%</fc>"
+       , template = "%StdinReader% }{ <fc=#FFFF00>%locks%</fc> %multicpu% | %memory% | %wlp58s0wi% | Brightness: %cat0% | %battery% | <fc=#FF0000>%theDate%</fc>"
        , commands = [ Run Date "%a %b %_d %Y  %H:%M:%S" "theDate" 10
                     , Run BatteryP ["BAT0"] ["-t", "Bat: <left>% <timeleft>"
                                             ,"-L", "20"
@@ -20,7 +20,6 @@ Config { font     = "xft:Dejavu Sans Mono:size=10:antialias=true"
                                    ] 10
                     , Run Memory ["-t","Mem: <used>MB / <total>MB"] 10
                     , Run Wireless "wlp58s0" ["-t", "SSID: <essid> <quality>%"] 10
-                    , Run Volume "default" "Master" [ ] 10
                     , Run Locks
                     , Run StdinReader 
                     , Run CatInt 0 "/sys/class/backlight/intel_backlight/brightness" [] 1

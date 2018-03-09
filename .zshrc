@@ -115,12 +115,19 @@ for command in find wget curl nix-env; \
 
 # vim (preferring neovim)
 if which nvim > /dev/null; then
-  export EDITOR=nvim
-  alias vi=nvim
-  alias vim=nvim
+    export EDITOR=nvim
+    export VISUAL=nvim
+    alias vi=nvim
+    alias vim=nvim
 else
-  export EDITOR=vim
-  alias nvim=vim
+    export EDITOR=vim
+    export VISUAL=vim
+    alias nvim=vim
+fi
+
+# pazi setup
+if command -v pazi &>/dev/null; then
+    eval "$(pazi init zsh)" # or 'bash'
 fi
 
 ### ls
@@ -327,7 +334,7 @@ source ~/.zaliases
 
 export LESS_TERMCAP_md=$(printf '\e[01;35m')
 
-source ~/.cargo/env
+#source ~/.cargo/env
 source ~/.profile
 
 . /home/derek/.nix-profile/etc/profile.d/nix.sh

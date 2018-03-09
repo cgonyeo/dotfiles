@@ -4,12 +4,17 @@ URxvt*foreground: White
 URxvt*background: Black
 URxvt*iso14755: False
 URxvt.font: xft:DejaVu Sans Mono:pixelsize=24
+URxvt.perl-ext-common: "default, -searchable-scrollback"
 
 ! Stop it Monica
 URxvt.print-pipe: "cat > /dev/null"
 Rxvt.print-pipe: "cat > /dev/null"
 
 Xft.dpi: 180
+
+! colors
+!! blue is too damn dark
+URxvt*color12:	  #6666FF
 
 ! open urls
 URxvt.keysym.M-u: perl:url-select:select_next
